@@ -1,8 +1,101 @@
+//注意这是less语法css不能这样写！！！！！
+@radius: .5rem;
+@fontSize: .8rem;
+@images: './image/psonCenter.jpg';
+@buttonColor: #ff5b6e;
+@textColor: #fff;
+@navColor:#f8f8f8;
+@size:3.5rem;
 
-*{
-  margin: 0;
-  padding: 0;
+
+.home_outbox{
+  flex-direction: column;
+  height: 100%;
 }
-p{
-  font-size: 40px;
+
+.home_nav {
+  padding: .5rem 0;
+  background-color: @navColor;
+    figure {
+      width: @size;
+      height: @size;
+      overflow: hidden;
+      border-radius: 999px;
+      margin-left: .5rem;
+    }
+    section {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
+    .button_box{
+      align-items: center;
+    }
+    .text_box{
+      padding-left: .5rem;
+      line-height: 1.4rem;
+      align-items: center;
+    }
+  button{
+    margin-right: .5rem;
+  }
+}
+//二维码
+.code_toggle{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+    section{
+      width: 65%;
+    }
+}
+//菜单
+.home_menu{
+  .flex_box{
+    display: flex;
+    justify-content: center;
+    margin-top: .25rem;
+    padding: .6rem 0;
+      div{
+        color: @textColor;
+        padding-top: .4rem;
+      }
+      i{
+        color: @textColor;
+        font-size: 1.4rem;
+      }
+  }
+}
+//个人中心
+.person_center{
+  .bg_img{
+    padding: .5rem;
+    flex-direction: column;
+    background: url(@images)0 0 no-repeat;
+    background-size: cover;
+    height: 10.5rem;
+  }
+  figure{
+    width: @size;
+    height: @size;
+    overflow: hidden;
+    border-radius: 999px;
+  }
+  .person_box{
+      section{
+        align-items: center;
+        margin-left: .5rem;
+      }
+      div{
+        line-height: 1.2rem;
+      }
+  }
+  .footer_info{
+    align-items: flex-end;
+    flex: 1;
+    li{
+      flex: 1;
+      text-align: center;
+    }
+  }
 }

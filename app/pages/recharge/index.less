@@ -1,0 +1,60 @@
+
+@image:"./image/card_bg.jpg";
+@priceTextColor:#0090ff;
+.vip_cardbox{
+  background: url(@image)0 0 no-repeat;
+  background-size: cover;
+      .vip_card{
+        padding: .6rem .6rem;
+        height: 10.5rem;
+        flex-direction: column;
+          .info{
+              div{
+                align-items: center;
+                margin-left: .5rem;
+                  h5{
+                    font-weight: normal;
+                  }
+              }
+          }
+        .text_discrip{
+          flex: 1;
+          justify-content: flex-end;
+          align-items: flex-end;
+        }
+      }
+      .info{
+          figure{
+            width: 3.5rem;
+            height: 3.5rem;
+            overflow: hidden;
+            border-radius: 999px;
+          }
+      }
+}
+
+//充值按钮
+.price_button{
+    .price_boxbutton{
+      text-align: center;
+      margin-top: .8rem;
+      a{
+          display: block;
+          width: 80px;
+          margin: 0 auto;
+          color: @priceTextColor;
+          padding: .2rem 0;
+          background-color: rgba(0,168,255,.2);
+          border: 1px solid #bae8ff;
+          border-radius: .1rem;
+      }
+    }
+}
+//标题
+.price_tittle{
+    margin-top: .6rem;
+    .md_tittle{
+      font-size: 1rem;
+      margin: 0 .5rem;
+    }
+}
