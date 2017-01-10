@@ -4,12 +4,12 @@
 import React from 'react';
 import Page from '../../component/page';
 import avatar from './image/avatar.jpg';
-import {Flex, FlexItem, Cells, Cell, CellBody, CellFooter} from '../../weui_component/index';
+import {Footer, FooterLink, FooterLinks, FooterText, Cells, Cell, CellBody, CellFooter} from '../../weui_component/index';
 import { Link } from 'react-router';
 
 
 const menus = [
-    {tittle:"积分兑换记录",link:'/redemptionRecords',icon:"iconfont icon-shopfill"},
+    {tittle:"积分兑换记录",link:'/redemptionRecords',icon:"iconfont icon-newshot"},
     {tittle:"积分明细",link:'/redemptionRecords',icon:"iconfont icon-recharge"},
     {tittle:"我的账单",link:'/redemptionRecords',icon:"iconfont icon-form"},
     {tittle:"会员权益",link:'/redemptionRecords',icon:"iconfont icon-crown"},
@@ -56,17 +56,19 @@ class CardInfo extends React.Component{
 class List extends React.Component{
     render(){
         return(
-            <Cells>
-                {menus.map((item, j)=>(
-                    <Cell key={j} component={Link} to={item.link} access>
-                        <i className={item.icon}> </i>
-                        <CellBody>
-                            {item.tittle}
-                        </CellBody>
-                        <CellFooter/>
-                    </Cell>
-                ))}
-            </Cells>
+            <div className="list_mu">
+                <Cells>
+                    {menus.map((item, j)=>(
+                        <Cell key={j} component={Link} to={item.link} access>
+                            <i className={item.icon}> </i>
+                            <CellBody>
+                                {item.tittle}
+                            </CellBody>
+                            <CellFooter/>
+                        </Cell>
+                    ))}
+                </Cells>
+            </div>
         )
     }
 }
@@ -78,6 +80,12 @@ export default class PersonalCenter extends React.Component{
             <Page>
                 <CardInfo />
                 <List/>
+                <Footer className="fix_footer">
+                    <FooterLinks>
+                        <FooterLink href="javascript:void(0);">快办商户通</FooterLink>
+                    </FooterLinks>
+                    <FooterText>Copyright &copy; 2015-2017</FooterText>
+                </Footer>
             </Page>
         )
     }

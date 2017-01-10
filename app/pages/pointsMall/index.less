@@ -1,0 +1,72 @@
+
+@imgSize:3.5rem;
+@bgImg:'./image/bg_img.png';
+@button_nochange:#e64340;
+@button_change:#e2e2e2;
+
+.point_nav{
+    position: relative;
+    flex-direction: column;
+    height: 10.5rem;
+    background-color: #0090ff;
+    background-image: url(@bgImg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    .card_box{
+          justify-content: center;
+          margin-top: 1rem;
+          figure{
+            width: @imgSize;
+            height: @imgSize;
+            overflow: hidden;
+            border-radius: 999px;
+          }
+    }
+  .exchange{
+    position: absolute;
+    right: .5rem;
+    top: 1rem
+  }
+
+//  信息底部文字
+  .info{
+    flex: 1;
+    align-items: flex-end;
+      div{
+        flex: 50%;
+        text-align: center;
+      }
+  }
+}
+
+//单个列表
+  .list_style_line4{
+      .weui-media-box_appmsg{
+          .weui-media-box__bd{
+            position: relative;
+          }
+          .weui-media-box__hd{
+            width: 76px;
+            height: 76px;
+          }
+          p{
+            font-size: .85rem;
+          }
+          .button_change{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: .3rem .5rem;
+            background-color: @button_nochange;
+            color: #fff;
+            border-radius: .2rem;
+          }
+          .point{
+            color: #4c4c4c;
+              .price{
+                color: @button_nochange;
+              }
+          }
+      }
+  }
