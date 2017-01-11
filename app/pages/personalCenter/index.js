@@ -9,11 +9,11 @@ import { Link } from 'react-router';
 
 
 const menus = [
-    {tittle:"积分兑换记录",link:'/redemptionRecords',icon:"iconfont icon-newshot"},
-    {tittle:"积分明细",link:'/redemptionRecords',icon:"iconfont icon-recharge"},
-    {tittle:"我的账单",link:'/redemptionRecords',icon:"iconfont icon-form"},
-    {tittle:"会员权益",link:'/redemptionRecords',icon:"iconfont icon-crown"},
-    {tittle:"个人中心",link:'/redemptionRecords',icon:"iconfont icon-people"},
+    {tittle:"积分兑换记录",link:'/ExchangeRecords',icon:"iconfont icon-newshot"},
+    {tittle:"积分明细",link:'/IntegrationDetails',icon:"iconfont icon-recharge"},
+    {tittle:"我的账单",link:'/MyBill',icon:"iconfont icon-form"},
+    {tittle:"会员权益",link:'/VipInterest',icon:"iconfont icon-crown"},
+    {tittle:"个人信息",link:'/PersonalInfo',icon:"iconfont icon-people"},
 ];
 
 class CardInfo extends React.Component{

@@ -3,11 +3,12 @@
  */
 import React from 'react';
 import Page from '../../component/page';
+import NavBarAuto from './navbar';
 
 export default class Coupon extends React.Component{
     render(){
-        return <h1>
-            优惠券
-        </h1>
+        return <Page className="coupon_bg">
+            <NavBarAuto/>
+        </Page>
     }
 }

@@ -9,9 +9,11 @@ import 'weui';
 import "babel-polyfill";
 
 import FastClick from 'fastclick';
-import Page from './index';
+import Pages from './index';
 
-const  { Home, Recharge, Coupon, PersonalCenter, PointsMall } = Page;
+const  { Home, Recharge, Coupon, PersonalCenter,
+         PointsMall, VipInterest, MyBill, IntegrationDetails,
+    ExchangeRecords, PersonalInfo} = Pages;
 
 class App extends React.Component{
     constructor(props){
@@ -33,6 +35,8 @@ class App extends React.Component{
         );
     }
 }
+
+
 
 window.addEventListener('load',() =>{
     FastClick.attach(document.body);
@@ -71,6 +75,11 @@ render((
             <Route path="/recharge" component={Recharge} />
             <Route path="/coupon" component={Coupon} />
             <Route path="/personalCenter" component={PersonalCenter} />
+                <Route path="/VipInterest" component={VipInterest}/>
+                <Route path="/MyBill" component={MyBill}/>
+                <Route path="/IntegrationDetails" component={IntegrationDetails}/>
+                <Route path="/ExchangeRecords" component={ExchangeRecords} />
+                <Route path="/PersonalInfo" component={PersonalInfo} />
             <Route path="/pointsMall" component={PointsMall} />
             <Route path="*" component={NoMatch}/>
         </Route>
