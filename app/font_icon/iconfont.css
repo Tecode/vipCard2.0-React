@@ -93,7 +93,11 @@
 
 .icon-picfill:before { content: "\e72c"; }
 
+.icon-shouji:before { content: "\e62a"; }
+
 .icon-presentfill:before { content: "\e732"; }
+
+.icon-jiaoyuxingye:before { content: "\e6d4"; }
 
 .icon-peoplefill:before { content: "\e735"; }
 
@@ -119,17 +123,27 @@
 
 .icon-my:before { content: "\e690"; }
 
+.icon-like:before { content: "\e69c"; }
+
+.icon-likefill:before { content: "\e69d"; }
+
 .icon-qr2:before { content: "\e6a5"; }
 
 .icon-profilefill:before { content: "\e77a"; }
 
+.icon-xingbiepianhao:before { content: "\e628"; }
+
 .icon-phonedateicon21:before { content: "\e630"; }
+
+.icon-youxiang:before { content: "\e60f"; }
 
 .icon-recordfill:before { content: "\e7a4"; }
 
 .icon-record:before { content: "\e7a6"; }
 
 .icon-youhuiquan:before { content: "\e607"; }
+
+.icon-youxiang1:before { content: "\e626"; }
 
 .icon-youhuiquan1:before { content: "\e7bc"; }
 
@@ -138,6 +152,8 @@
 .icon-newshotfill:before { content: "\e7c4"; }
 
 .icon-newshot:before { content: "\e7c5"; }
+
+.icon-ownedindustry:before { content: "\e836"; }
 
 .icon-favor_fill_light:before { content: "\e7ec"; }
 

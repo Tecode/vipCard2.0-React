@@ -87,7 +87,7 @@ class Infinite extends React.Component {
                         {
                             this.state.items.map( (item, i) => {
                                 return (
-                                    <Cell href="javascript:;" key={i} access>
+                                    <Cell href="javascript:void (0);" key={i} access>
                                         <CellBody>
                                             {item}
                                         </CellBody>

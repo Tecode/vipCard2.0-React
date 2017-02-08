@@ -2,7 +2,8 @@
  * Created by ASSOON on 2017/1/11.
  */
 import React from 'react';
-import CouponItem from './coupon';
+import CouponItemRed from './couponRed';
+import CouponItemBlue from './couponBlue';
 import { Tab, NavBarItem, Article } from '../../weui_component/index';
 
 export default class NavBarAuto extends React.Component {
@@ -10,7 +11,18 @@ export default class NavBarAuto extends React.Component {
         return (
             <Tab type="navbar">
                 <NavBarItem label="可用优惠券">
-                    <CouponItem className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemBlue className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemBlue className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemBlue className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemRed className="coupon"/>
+                    <CouponItemBlue className="coupon"/>
+                    <CouponItemRed className="coupon"/>
                 </NavBarItem>
                 <NavBarItem label="历史优惠券">
                     <Article>

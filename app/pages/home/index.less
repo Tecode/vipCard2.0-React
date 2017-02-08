@@ -5,7 +5,8 @@
 @buttonColor: #ff5b6e;
 @textColor: #fff;
 @navColor:#f8f8f8;
-@size:3.5rem;
+@size:3rem;
+@size2:2rem;
 @iconColor:#40beff;
 
 
@@ -46,9 +47,31 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  position: relative;
     section{
       width: 65%;
     }
+    .toggle_button{
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: @size2;
+      height: @size2;
+      justify-content: center;
+      align-items: center;
+      border-radius: .2rem;
+      background-color: rgba(0,198,136,.8);
+      border:1px solid #00c688;
+        i{
+          font-size: 1.5rem;
+          font-weight: 400;
+          color: @textColor;
+        }
+    }
+
+  .toggle_button:hover{
+    background-color: rgba(0,198,136,1);
+  }
 }
 //菜单
 .home_menu{
@@ -56,14 +79,15 @@
     display: flex;
     justify-content: center;
     margin-top: .25rem;
-    padding: .6rem 0;
+    align-items: center;
+    padding: .5rem 0;
       div{
         color: @textColor;
-        padding-top: .4rem;
       }
       i{
+        font-size: 1.5rem;
         color: @textColor;
-        font-size: 1.4rem;
+        margin-right: .2rem;
       }
   }
 }
@@ -154,13 +178,38 @@
 .coupon{
   padding: .5rem;
   .coupon-box{
-    height: 110px;
+    height: 100px;
     font-size: .8rem;
+    position: relative;
+    .vip_text{
+      position: absolute;
+      top: .4rem;
+      left: .1rem;
+      background-color: #f64b68;
+      color: #fff;
+      padding: .1rem .9rem .1rem .6rem;
+      border-bottom-right-radius: 999px;
+      border-top-right-radius: 999px;
+    }
+    .vip_text_blue{
+      background-color: #00b7f0;
+    }
     .content{
       flex: 65%;
+      justify-content: center;
+      align-items: center;
       background-color: #fff;
+      padding-left: .5rem;
+      line-height: 1.3rem;
+      color: #4c4c4c;
         section{
-
+            justify-content: center;
+            padding-top: 1rem;
+            .up_down{
+              font-size: 1.5rem;
+              font-weight: bold;
+              padding-bottom: .2rem;
+            }
         }
     }
     .color_bg{
@@ -171,18 +220,22 @@
           position: absolute;
           top:38%;
           right: .2rem;
-          small{
-            display: block;
-            margin-top: 4px;
-            color: #fff;
-          }
+            small{
+              display: block;
+              margin-top: 4px;
+              color: #fff;
+            }
         }
         a{
           color: #f64b68;
           background-color: #fff;
           border: 4px solid #df445e;
           border-radius: 999px;
-          padding: 2px 10px;
+          padding: 2px 6px;
+        }
+        .blue_button{
+          color: #00b7f0;
+          border: 4px solid #0090bd;
         }
     }
   }

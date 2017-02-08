@@ -13,7 +13,7 @@ export default class MediaBoxDescription extends React.Component {
         }, className);
 
         return (
-            <p className={cls} {...others}>{children}</p>
+            <div className={cls} {...others}>{children}</div>
         );
     }
 };

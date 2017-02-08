@@ -37,22 +37,10 @@ const ListItem = (props)=>{
                         <MediaBoxBody>
                             <MediaBoxTitle>Media heading Media heading Media heading</MediaBoxTitle>
                             <MediaBoxDescription>
-                                <p>有效期至：2016年8月31日</p>
+                                <div>有效期至：2016年8月31日</div>
                                 <small>剩余数量:24</small>
-                                <p className="point"><span className="price">800</span><small>积分</small></p>
-                                <a className="button_change" href="javascript:void(0)">兑换</a>
-                            </MediaBoxDescription>
-                        </MediaBoxBody>
-                    </MediaBox>
-                    <MediaBox type="appmsg" href="javascript:void(0);">
-                        <MediaBoxHeader>{appMsgIcon}</MediaBoxHeader>
-                        <MediaBoxBody>
-                            <MediaBoxTitle>Media heading Media heading Media heading</MediaBoxTitle>
-                            <MediaBoxDescription>
-                                <p>有效期至：2016年8月31日</p>
-                                <small>剩余数量:24</small>
-                                <p>800<small>积分</small></p>
-                                <a className="button_change" href="javascript:void(0)">兑换</a>
+                                <div className="point"><span className="price">800</span><small>积分</small></div>
+                                <span className="button_change" href="javascript:void(0)">兑换</span>
                             </MediaBoxDescription>
                         </MediaBoxBody>
                     </MediaBox>
