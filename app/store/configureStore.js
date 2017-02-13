@@ -3,18 +3,24 @@
  */
 
 import { createStore, applyMiddleware } from 'redux'
-// import createSagaMiddleware, { END } from 'redux-saga'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
 import rootReducer from '../reducers'
 
 export default function configureStore(initialState) {
-    // const sagaMiddleware = createSagaMiddleware()
     let store = createStore(
         rootReducer,
         initialState,
-        // applyMiddleware(sagaMiddleware)
+        applyMiddleware(thunkMiddleware,createLogger())
     );
 
-    // store.runSaga = sagaMiddleware.run;
-    // store.close = () => store.dispatch(END);
+    if (module.hot) {
+        // Enable Webpack hot module replacement for reducers
+        module.hot.accept('../reducers', () => {
+            const nextRootReducer = require('../reducers');
+            store.replaceReducer(nextRootReducer)
+        })
+    }
+
     return store
 }

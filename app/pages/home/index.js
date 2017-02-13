@@ -1,9 +1,13 @@
 /**
  * Created by ASSOON on 2017/1/3.
  */
-import React from 'react';
-import './index.less';
-import Page from '../../component/page';
+import React, {Component,PropTypes} from 'react'
+import './index.less'
+import Page from '../../component/page'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as HomePageAction from '../../actions/HomePageAction'
+
 import avatar from './image/avatar.jpg'
 import QCodde from './image/QR_code.png'
 import {
@@ -12,8 +16,21 @@ import {
 } from '../../weui_component/index';
 
 
-class Hearder extends React.Component {
+class Hearder extends Component {
+    constructor(props){
+        super(props);
+
+    }
+    componentWillMount(){
+        console.info("componentWillMount");
+        const { requestUserInfo, receiveUserInfo, fetchPostsIfNeeded} = this.props;
+        fetchPostsIfNeeded();
+    }
+    componentDidMount(){
+        console.info("componentDidMount")
+    }
     render() {
+        const { listData} = this.props;
         return (
             <header className="home_nav weui-flex">
                 <figure>
@@ -24,6 +41,9 @@ class Hearder extends React.Component {
                         <div>
                             <h4>名字：2551</h4>
                             <small>会员卡余额：25</small>
+                            {
+                                listData.map((e,i) => <h1 key={i}>{e.author}</h1>)
+                            }
                         </div>
                     </div>
                     <div className="button_box weui-flex">
@@ -35,7 +55,7 @@ class Hearder extends React.Component {
     }
 }
 
-class QRCode extends React.Component {
+class QRCode extends Component {
     render() {
         return (
             <div className="code_toggle weui-flex">
@@ -53,7 +73,7 @@ class QRCode extends React.Component {
     }
 }
 
-class HomeMenu extends React.Component {
+class HomeMenu extends Component {
     render() {
         return (
             <div className="flex home_menu">
@@ -102,24 +122,34 @@ class HomeMenu extends React.Component {
     }
 }
 
-export  default class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            color: "6666"
-        };
-    }
+class Home extends Component {
 
     render() {
+        const { state, actions} = this.props;
         return (
             <Page>
                 <div className="home_outbox weui-flex">
-                    <Hearder/>
-                    <QRCode/>
-                    <HomeMenu/>
+                    <Hearder {...state} {...actions} />
+                    <QRCode {...state} {...actions} />
+                    <HomeMenu />
                 </div>
             </Page>
         )
     }
 
 }
+
+
+
+const mapStateToProps = state => ({
+    state: state.getUserInfo
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(HomePageAction, dispatch)
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home)

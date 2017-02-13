@@ -5,12 +5,11 @@
  * 这里定义所有的action类型
  * */
 
-// Counter
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-export const INCREMENT_ASYNC = 'INCREMENT_ASYNC'
-export const COUNT_DOWN = 'COUNT_DOWN'
-export const ASYNC_OVER = 'ASYNC_OVER'
+// Home
+export const REQUEST_USERINFO = 'REQUEST_USERINFO';
+export const RECEIVE_USERINFO = 'RECEIVE_USERINFO';
+export const REQUEST_CODE = 'REQUEST_CODE';
+export const RECEIVE_CODE = 'RECEIVE_CODE';
 
 // Todos
 export const ADD_TODO = 'ADD_TODO'
@@ -35,7 +34,7 @@ export const RESET = 'RESET'
 export const TIMER = 'TIMER'
 
 // Post
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_REDDIT = 'SELECT_REDDIT'
-export const INVALIDATA_REDDIT = 'INVALIDATA_REDDIT'
+// export const REQUEST_POSTS = 'REQUEST_POSTS'
+// export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+// export const SELECT_REDDIT = 'SELECT_REDDIT'
+// export const INVALIDATA_REDDIT = 'INVALIDATA_REDDIT'
