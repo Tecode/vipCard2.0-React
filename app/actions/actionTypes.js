@@ -10,19 +10,17 @@ export const REQUEST_USERINFO = 'REQUEST_USERINFO';
 export const RECEIVE_USERINFO = 'RECEIVE_USERINFO';
 export const REQUEST_CODE = 'REQUEST_CODE';
 export const RECEIVE_CODE = 'RECEIVE_CODE';
+export const REQUEST_SINGIN = 'REQUEST_SINGIN';
+export const RECEIVE_SINGIN = 'RECEIVE_SINGIN';
+export const CHANGE_START = 'CHANGE_START';
 
-// Todos
-export const ADD_TODO = 'ADD_TODO'
-export const COMPLETE_TODO = 'COMPLETE_TODO'
-export const DELETE_TODO = 'DELETE_TODO'
-export const EDIT_TODO = 'EDIT_TODO'
-export const COMPLETE_ALL = 'COMPLETE_ALL'
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+// personCenter
+export const REQUEST_PERSONAL = 'REQUEST_PERSONAL';
+export const RECEIVE_PERSONAL = 'RECEIVE_PERSONAL';
 
-// TodoFilters
-export const SHOW_ALL = 'show_all'
-export const SHOW_COMPLETED = 'show_completed'
-export const SHOW_ACTIVE = 'show_active'
+// personinfo
+export const REQUEST_PERSONAL_INFO = 'REQUEST_PERSONAL_INFO';
+export const RECEIVE_PERSONAL_INFO = 'RECEIVE_PERSONAL_INFO';
 
 // SHOW_CONGRATULATION
 export const SHOW_CONGRATULATION = 'show_congratulation'

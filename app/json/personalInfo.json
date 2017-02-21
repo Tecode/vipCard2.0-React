@@ -1,0 +1,22 @@
+{
+  "code": 0,
+  "msg": "获取成功.",
+  "data": {
+    "name": "zyg",
+    "phone": "18523662999",
+    "birthday": "2017-02-21",
+    "email": "272381030@qq.com",
+    "store": "907",
+    "hobby": "aihao",
+    "vipid": 464,
+    "createtime": "2017-02-20 下午 16:14:10",
+    "address": "dizhi",
+    "qualification": "5",
+    "profession": "2",
+    "companyname": "快办商户通",
+    "cardlevel": "白银会员卡",
+    "cardnumber": "85171758484259168",
+    "zjf": 0,
+    "sex": 0
+  }
+}

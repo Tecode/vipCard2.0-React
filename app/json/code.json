@@ -1,0 +1,9 @@
+{
+  "code": 0,
+  "msg": "成功",
+  "data": {
+    "barcode": "https://pay.51byod.cn/PayWeiXinMobile/Temp/BARcode/901001471604215568.png",
+    "qrcode": "https://pay.51byod.cn/PayWeiXinMobile/Temp/QRcode/901001471604215568.png",
+    "codes": "901001471604215568"
+  }
+}

@@ -3,7 +3,10 @@
  */
 import React from 'react';
 import Page from '../../component/page';
-import avatar from './image/avatar.jpg';
+import {connect} from 'react-redux'
+
+import {bindActionCreators} from 'redux'
+import * as PersonCenter from '../../actions/PersonCenter'
 import {Footer, FooterLink, FooterLinks, FooterText, Cells, Cell, CellBody, CellFooter} from '../../weui_component/index';
 import { Link } from 'react-router';
 
@@ -17,33 +20,40 @@ const menus = [
 ];
 
 class CardInfo extends React.Component{
+
+    componentWillMount(){
+        const { fetchPostsIfNeeded } = this.props;
+        fetchPostsIfNeeded();
+    }
+
     render(){
+        const { data } =this.props;
         //个人中心的样式在home里面
         return(
             <div className="person_center">
                 <section className="bg_img weui-flex">
                     <div className="person_box weui-flex">
                         <figure>
-                            <img src={avatar} alt="头像" width={'100%'} />
+                            <img src={data.wximg} alt="头像" width={'100%'} />
                         </figure>
                         <section className="weui-flex">
                             <div>
-                                <h5>菲儿vip1</h5>
-                                <small>总积分 9864</small>
+                                <h5>{data.wxname}</h5>
+                                <small>总积分 {data.totalscore}</small>
                             </div>
                         </section>
                     </div>
                     <ul className="footer_info weui-flex">
                         <li>
-                            <h5>8658</h5>
+                            <h5>{data.currentscore}</h5>
                             <small>可用积分</small>
                         </li>
                         <li>
-                            <h5>￥658</h5>
-                            <small>可用积分</small>
+                            <h5>￥{data.wxyue}</h5>
+                            <small>可用金额</small>
                         </li>
                         <li>
-                            <h5>5</h5>
+                            <h5>{data.cardcount}</h5>
                             <small>优惠券</small>
                         </li>
                     </ul>
@@ -74,11 +84,14 @@ class List extends React.Component{
 }
 
 
-export default class PersonalCenter extends React.Component{
+class PersonalCenter extends React.Component{
+
     render(){
+        const { personCenterIfo,actions } = this.props;
+
         return (
             <Page>
-                <CardInfo />
+                <CardInfo {...personCenterIfo} {...actions} />
                 <List/>
                 <Footer className="fix_footer">
                     <FooterLinks>
@@ -90,3 +103,16 @@ export default class PersonalCenter extends React.Component{
         )
     }
 }
+
+const mapStateToProps = state => ({
+    personCenterIfo: state.personCenterIfo,//获取用户信息
+});
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(PersonCenter, dispatch)
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PersonalCenter)

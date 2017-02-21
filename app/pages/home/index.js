@@ -1,15 +1,14 @@
 /**
  * Created by ASSOON on 2017/1/3.
  */
-import React, {Component,PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import './index.less'
 import Page from '../../component/page'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import * as HomePageAction from '../../actions/HomePageAction'
 
-import avatar from './image/avatar.jpg'
-import QCodde from './image/QR_code.png'
 import {
     Flex,
     FlexItem
@@ -17,33 +16,28 @@ import {
 
 
 class Hearder extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+    }
 
+    componentWillMount() {
+        const { fetchPostsIfNeeded } = this.props;
+        fetchPostsIfNeeded('fetchPosts');//获取用户信息
+        fetchPostsIfNeeded('getCode');//获取条形码和二维码
     }
-    componentWillMount(){
-        console.info("componentWillMount");
-        const { requestUserInfo, receiveUserInfo, fetchPostsIfNeeded} = this.props;
-        fetchPostsIfNeeded();
-    }
-    componentDidMount(){
-        console.info("componentDidMount")
-    }
+
     render() {
-        const { listData} = this.props;
+        const {userInfo} = this.props;
         return (
             <header className="home_nav weui-flex">
                 <figure>
-                    <img src={avatar} style={{width: '100%'}}/>
+                    <img src={userInfo.wximg} style={{width: '100%'}}/>
                 </figure>
                 <section>
                     <div className="text_box weui-flex">
                         <div>
-                            <h4>名字：2551</h4>
-                            <small>会员卡余额：25</small>
-                            {
-                                listData.map((e,i) => <h1 key={i}>{e.author}</h1>)
-                            }
+                            <h4>名字：{userInfo.wxname}</h4>
+                            <small>会员卡余额：{userInfo.wxyue}</small>
                         </div>
                     </div>
                     <div className="button_box weui-flex">
@@ -55,18 +49,43 @@ class Hearder extends Component {
     }
 }
 
+
 class QRCode extends Component {
+
+    handleClick = (status) => {
+        this.props.onChangeStart(status)
+    };
+
     render() {
+        const {codes, status} = this.props;
+        let code = () =>{
+            if (status==0){
+                return <img src={codes.qrcode} alt="扫码" width={'100%'}/>
+            }else {
+                return <div>
+                    <img src={codes.barcode} alt="扫码" width={'100%'}/>
+                    <p className="text-center">{codes.codes}</p>
+                </div>
+            }
+        };
         return (
             <div className="code_toggle weui-flex">
                 <section>
-                    <img src={QCodde} alt="扫码" width={'100%'}/>
+                    <ReactCSSTransitionGroup
+                        component="div"
+                        transitionName="page"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}
+                        style={{height: '100%'}}
+                    >
+                        { code() }
+                    </ReactCSSTransitionGroup>
                     <p className="text-center">
                         <small>两分钟后自动刷新<a href="javascript:void (0)">(立即刷新)</a></small>
                     </p>
                 </section>
                 <div className="toggle_button weui-flex">
-                    <i className="iconfont">&#xe66c;</i>
+                    <i className="iconfont" onClick={ () => this.handleClick(status) }>&#xe66c;</i>
                 </div>
             </div>
         )
@@ -125,12 +144,12 @@ class HomeMenu extends Component {
 class Home extends Component {
 
     render() {
-        const { state, actions} = this.props;
+        const {getUserInfo, getCode, changeCode, actions} = this.props;
         return (
             <Page>
                 <div className="home_outbox weui-flex">
-                    <Hearder {...state} {...actions} />
-                    <QRCode {...state} {...actions} />
+                    <Hearder {...getUserInfo} {...actions} />
+                    <QRCode {...getCode} {...changeCode} {...actions} />
                     <HomeMenu />
                 </div>
             </Page>
@@ -140,9 +159,10 @@ class Home extends Component {
 }
 
 
-
 const mapStateToProps = state => ({
-    state: state.getUserInfo
+    getUserInfo: state.getUserInfo,//获取基本用户信息
+    getCode: state.getCode,//获取二维码条形码
+    changeCode: state.changeCode//切换二维码和条形码
 });
 
 const mapDispatchToProps = dispatch => ({
